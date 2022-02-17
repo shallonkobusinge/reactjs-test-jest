@@ -68,7 +68,7 @@ describe("Generate report with valid token views", () => {
 });
 
 
-describe("", () => {
+describe("Generating token", () => {
     it('successful generating token', async () => {
         jest
             .spyOn(window, 'fetch')
