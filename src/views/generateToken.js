@@ -83,7 +83,6 @@ const GenerateToken = ({ setShowForm, token }) => {
                     </button>
                 </div>
             </form>
-
             <ToastContainer />
         </div>
 
