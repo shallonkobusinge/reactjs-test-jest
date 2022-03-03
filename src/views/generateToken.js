@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import BASE_URL from '../utils/baseUrl';
-const GenerateToken = ({ setShowForm }) => {
+const GenerateToken = ({ setShowForm, token }) => {
 
     const [tokenData, setTokenData] = useState([]);
 
@@ -14,12 +14,10 @@ const GenerateToken = ({ setShowForm }) => {
         setTokenData({ ...tokenData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(tokenData)
 
-
-        axios.post(`${BASE_URL}/generate-token`, tokenData)
+        await axios.post(`${BASE_URL}/generate-token`, tokenData)
             .then(function (response) {
                 console.log(response)
                 setShowForm("report")
@@ -44,7 +42,7 @@ const GenerateToken = ({ setShowForm }) => {
 
                 <div className="schoolmanager-container w-full max-w-xs mx-auto">
                     <div className="grid grid-cols-6 grid-rows-2  gap-8">
-                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 ">
+                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 " data-testid="username">
                             <Input
                                 name="username"
                                 inputHandler={inputHandler}
@@ -55,7 +53,7 @@ const GenerateToken = ({ setShowForm }) => {
                                 required
                             />
                         </div>
-                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 ">
+                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 " data-testid="amount">
                             <Input
                                 name="amount"
                                 inputHandler={inputHandler}
@@ -66,13 +64,13 @@ const GenerateToken = ({ setShowForm }) => {
                                 required
                             />
                         </div>
-                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 ">
+                        <div className="col-span-6 gap-6 sm:col-span-6 sm:row-span-1 " data-testid="meter">
                             <Input
                                 name="meter"
                                 inputHandler={inputHandler}
                                 type="text"
-                                labelName="meter"
                                 placeholder="meter"
+                                labelName="meter"
                                 className="login-input"
                                 required
                             />
@@ -80,7 +78,7 @@ const GenerateToken = ({ setShowForm }) => {
                     </div>
                 </div>
                 <div className="mt-8 text-center">
-                    <button className="bg-yellow-500 text-gray-800 font-bold  py-2 px-10 rounded inline-flex items-center submit">
+                    <button className="bg-yellow-500 text-gray-800 font-bold  py-2 px-10 rounded inline-flex items-center submit" data-testid="submit-btn">
                         <span className="text-white">Generate</span>
                     </button>
                 </div>

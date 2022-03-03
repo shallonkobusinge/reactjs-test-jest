@@ -8,6 +8,7 @@ const Input = ({
     labelName,
     inputHandler,
     styles = [],
+    role,
     required = false,
     pattern,
     defaultInputValue = "",
@@ -33,8 +34,10 @@ const Input = ({
                 pattern={pattern}
                 disabled={disabled}
                 value={value}
+                role={role}
                 step={type === "number" ? "any" : ""}
-                autocomplete="off"
+                autoComplete="off"
+                aria-label={labelName}
             />
             <span className="error" id={`${name}Error`} />
         </div>

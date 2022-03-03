@@ -3,7 +3,7 @@ const Navbar = ({ children }) => {
 
     return (
         <div>
-            <div class="flex justify-between app-background text-white p-4 bg-yellow-500">
+            <div className="flex justify-between app-background text-white p-4 bg-yellow-500">
                 <div>
 
                     BILLING
@@ -11,7 +11,7 @@ const Navbar = ({ children }) => {
 
             </div>
             {children}
-        </div>
+        </div >
 
     )
 }
