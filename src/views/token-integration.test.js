@@ -5,7 +5,6 @@ import GenerateToken from './generateToken';
 jest.mock('axios')
 
 describe('Report', () => {
-
     test("Generate report calls doneChange when generate report button is clicked", () => {
         const bill = { id: 1, meter: "119012", amount: "100" };
         const doneChange = jest.fn();

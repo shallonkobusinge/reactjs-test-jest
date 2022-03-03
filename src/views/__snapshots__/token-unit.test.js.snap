@@ -13,6 +13,7 @@ exports[`Generate token module matches snapshot 1`] = `
     <form
       novalidate=""
     >
+    
       <div
         class="schoolmanager-container w-full max-w-xs mx-auto"
       >
